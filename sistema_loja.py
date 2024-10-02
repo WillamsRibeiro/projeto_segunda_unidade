@@ -1,6 +1,5 @@
 banco_de_dados = {}
 
-
 def exibir():
     print('1- cadastrar produtos\n2- editar preço \n3- relatorio\n4- excluir')
 
