@@ -1,74 +1,68 @@
-lista_cliente = {}
-mercadorias={}
+banco_de_dados = {}
+
 
 
 def exibir():
-    print('1- cadastrar cliente\n2- para cadastrar produtos\n3- editar \n4- relatorio\n5- relatorio produtos')
+    print('1- cadastrar produtos\n2- editar \n3- relatorio\n4- excluir')
 
 def opcoes_do_programa():
     exibir()
-    opcao=int(input())
+    opcao=int(input(""))
 
     while opcao !=0 :
 
         if opcao == 1:
-            nome = input("nome do cliente:  ")
-            telefone = int(input('digite o numero: '))
-            endereco = input ('rua/numero/cidade/bairro: ')
-            lista_cliente[nome]= {'nome':nome , 'contato': telefone, 'local': endereco}
-            print(f"cliente: {lista_cliente[nome]['nome']} | telefone: {lista_cliente[nome]['contato']} | endereço: {lista_cliente[nome]['local']}")
+            cod = input('digite o código do produto:  ')
+            cosmetico = (input('digite o nome: '))
+            tipo= input ('categoria do produto: ')
+            validade = input('nome do  mês de vencimento: ')
+            tempo = input('ano de vencimento: ')
+            preco = float(input('digite o preço do produto: '))
+            banco_de_dados[cod]= {'cod':cod , 'nome':cosmetico , 'categoria': tipo, 'val': validade, 'ano': tempo, 'venda': preco}
+            print(f" código do produto: {banco_de_dados[cod]['cod']} | nome: {banco_de_dados[cod]['nome']} | categoria: {banco_de_dados[cod]['categoria']} | vencimento: {banco_de_dados[cod]['val']} | ano {banco_de_dados[cod]['ano']} faturamento{banco_de_dados[cod]['venda']}")
             input('pressione uma tecla para retornar')
+            opcoes_do_programa()
 
 
         elif opcao == 2:
-            cod= input("codigo: ")
-            nome = input('digite o produto: ')
-            categoria = input('tipo do produto: ')
-            linha = input('digite a linha do produto: ')
-            qtd = int(input('digite a quantidade do produto: '))
-            val=input('digite o mês que vence o produto: ')
-            ano= int(input('Ano de vencimento: '))
-            preco= float(input('preço de compra: '))
-            preco_venda = float(input('preço de venda: '))
-
-            mercadorias[cod] = {'cod': cod, 'nome': nome, 'quantidade': qtd, 'catg': categoria, 'segmento': linha,
-                                     'mês': val, 'tempo': ano, 'compra': preco, 'venda': preco_venda}
-
-
-            print(f'''produto cod: {mercadorias[cod]["cod"]} |nome: {mercadorias[cod]["nome"]} |categoria: {mercadorias[cod]["catg"]} |linha: {mercadorias[cod]["segmento"]}| quantidade: {mercadorias[cod]["quantidade"]} 
-            | vecimento: {mercadorias[cod]["mês"]} |ano: {mercadorias[cod]["tempo"]} |investimento: {mercadorias[cod]["compra"]} |preço de venda: {mercadorias[cod]["venda"]}''')
-
-            input('pressione uma tecla para retornar')
-        elif opcao == 3:
             pass
 
 
 
-        elif opcao ==4:
+        elif opcao ==3:
             relatorio()
             print('1- cadastrar cliente\n2- para cadastrar produtos\n3- relatorio de vendas\n4- editar cliente:')
             int(input(''))
 
-        elif opcao ==5:
-           pass
+        elif opcao ==4:
+            produtos()
 
     else:
         pass
         opcoes_do_programa()
 def relatorio():
 
-    nome_cliente = input('digite o nome do cliente\n ')
+    produto = input('digite o nome do produto\n ')
 
-    if nome_cliente in lista_cliente:
-            print(f' nome: {lista_cliente[nome_cliente]["nome"]}| telefone::{lista_cliente[nome_cliente]["contato"]} | endereço:{lista_cliente[nome_cliente]["local"]}')
-            input('pressione uma tecla para retornar')
+    if produto in banco_de_dados.values():
+        print(banco_de_dados[produto])
+        input('pressione uma tecla para retornar')
     else:
-            print('cliente não cadastrado')
-            input('pressione uma tecla para retornar')
+        print('produto não cadastrado')
+        input('pressione uma tecla para retornar')
+
 def editar():
    pass
 def produtos():
-    pass
+    nome_do_produto = input('digite o nome do produto ')
+
+    if nome_do_produto in mercadorias:
+        print(f' nome: {mercadorias[nome_do_produto]["nome"] }')
+    else:
+        print('cliente não cadastrado')
+        input('pressione uma tecla para retornar')
+
+
 def excluir():
     item = input('digite o nome do item que deseja excluir: ')
     mercadorias[nome]= item
