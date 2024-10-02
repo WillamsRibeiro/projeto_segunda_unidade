@@ -1,7 +1,6 @@
 banco_de_dados = {}
 
 
-
 def exibir():
     print('1- cadastrar produtos\n2- editar preço \n3- relatorio\n4- excluir')
 
@@ -46,6 +45,7 @@ def opcoes_do_programa():
     else:
 
         opcoes_do_programa()
+
 def relatorio():
 
 
@@ -60,15 +60,12 @@ def relatorio():
         input('pressione uma tecla para retornar ')
         opcoes_do_programa()
 
-
 def editar():
     print(banco_de_dados)
     cod=input('codigo do produto ')
     if cod in banco_de_dados:
         banco_de_dados['venda'] = input('digite o novo preço')
         print(f'{banco_de_dados}')
-
-
 
 def excluir():
     print (banco_de_dados)
@@ -83,10 +80,7 @@ def excluir():
     print('banco de dados atualizado ',banco_de_dados)
     opcoes_do_programa()
 
-
-
 def main():
-
     opcoes_do_programa()
     relatorio()
     editar()
